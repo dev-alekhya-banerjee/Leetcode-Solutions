@@ -2,8 +2,6 @@ class Solution:
     def nextGreaterElements(self, nums: List[int]) -> List[int]:
         n=len(nums)
         stack=[]
-        for i in range(n):
-            stack.append(nums[i])
         ans=[-1]*n
         for i in range(2*n-1,-1,-1):
             idx=i%n
