@@ -3,8 +3,9 @@ class Solution:
         """
         Do not return anything, modify s in-place instead.
         """
-        stack=[]
-        for char in s:
-            stack.append(char)
-        for i in range(len(s)):
-            s[i]=stack.pop()
+        def stringRev(low: int,high: int) -> None:
+            if low>=high:
+                return
+            s[low],s[high]=s[high],s[low]
+            stringRev(low+1,high-1)
+        stringRev(0,len(s)-1)
