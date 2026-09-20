@@ -3,11 +3,14 @@ class Solution:
         n=len(nums)
         stack=[]
         ans=[-1]*n
-        for i in range(2*n-1,-1,-1):
-            idx=i%n
-            while stack and stack[-1]<=nums[idx]:
+        for i in range(n-2,-1,-1):
+            stack.append(nums[i])
+        for i in range(n-1,-1,-1):
+            while stack and stack[-1]<=nums[i]:
                 stack.pop()
             if stack:
-                ans[idx]=stack[-1]
-            stack.append(nums[idx])
+                ans[i]=stack[-1]
+            else:
+                ans[i]=-1
+            stack.append(nums[i])
         return ans
